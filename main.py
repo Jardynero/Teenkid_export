@@ -11,6 +11,7 @@ import time
 import datetime
 from insert_cols import inserting_cols, name_columns
 from photos import add_photo_titles
+from price import add_extra_charge
 
 # текущее время
 localtime = time.localtime()
@@ -39,6 +40,8 @@ inserting_cols(ws=ws)
 name_columns(ws=ws)
 # Функция добавляет названия фотографий товаров в колонку "С"
 add_photo_titles(ws=ws)
+# Функция делает надбавку у цены и вписывает ее в колонку "M"
+add_extra_charge(ws=ws)
 
 # Получение названия файла ексель
 current_excel_file_name = excel_file_search.excelfilename()
