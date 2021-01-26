@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang=ru>
+<head>
+    <meta charset="UTF-8">
+    <title>Генератор файла "Teenkid"</title>
+    <link rel="icon" type="image/png" href="/import.png">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/eelscript.js"></script>
+</head>
+<body>
+    <div class="background">
+        <div class="logo">
+            <img src="logo.png" height="70px" width="270px">
+        </div>
+        <div>
+            <h1>Генератор файла для импорта товаров</h1>
+        </div>
+        <div>
+            <h2>Инструкция пользования:</h2>
+            <p>1) Нажмите на кнопку "Выбрать путь к файлу с выгрузкой"<br>
+            2) Нажмите на кнопку "Сгенерировать файл<br>
+            3) Дождитесь окончания генерации файла НЕ закрывая это окно!<br>
+            По окончания генерации, Вы получите сообщение об успешной генерации файла</p>
+        </div>
+        <div>
+            <input id="button" type="submit" name="Сгенерировать файл">
+        </div>
+        <div id="log"></div>
+        <progress id="progress" value="0" max="10"></progress>
+    </div>
+</body>
+</html>
