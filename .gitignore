@@ -1,6 +1,6 @@
-.csv
-.xlsx
+*.csv
+*.xlsx
 .idea
-.xls
+*.xls
 test.py
 .DS_Store
