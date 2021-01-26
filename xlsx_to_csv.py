@@ -12,6 +12,7 @@ CSV_FILE_NAME = f'Выгрузка Teenkid от {datetime.date.today()}|{localti
 
 # Функция конвертирует xlsx в csv
 def convert_excel_to_csv():
-    print("Конвертирование выгрузки в csv формат")
+    print('Конвертирование файла выгрузки в .csv формат для выгрузки на сайт')
     xl = pd.read_excel(excelfilename())
     xl.to_csv(CSV_FILE_NAME, index_label=None, header=True)
+    print("Конвертирование файла в .csv формат успешно завершенно!")
