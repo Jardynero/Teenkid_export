@@ -10,6 +10,7 @@ from openpyxl import load_workbook
 import time
 import datetime
 from insert_cols import inserting_cols, name_columns
+from photos import add_photo_titles
 
 # текущее время
 localtime = time.localtime()
@@ -36,6 +37,8 @@ delete_cols(wb=wb, ws=ws)
 inserting_cols(ws=ws)
 # Функция дает названия новым колонкам
 name_columns(ws=ws)
+# Функция добавляет названия фотографий товаров в колонку "С"
+add_photo_titles(ws=ws)
 
 # Получение названия файла ексель
 current_excel_file_name = excel_file_search.excelfilename()
