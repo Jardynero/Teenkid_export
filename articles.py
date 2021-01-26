@@ -1,8 +1,8 @@
-
 from excel_file_search import excelfilename
 import pandas as pd
 import os
 
+# Константа - путь к ексель файлу
 EXCEL_FILE_NAME = excelfilename()
 
 
