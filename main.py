@@ -12,6 +12,7 @@ import datetime
 from insert_cols import inserting_cols, name_columns
 from photos import add_photo_titles
 from price import add_extra_charge
+from titles import title_correction
 
 # текущее время
 localtime = time.localtime()
@@ -30,6 +31,8 @@ sortexcel()
 wb = load_workbook(excel_file_search.excelfilename())
 ws = wb.active
 
+# Функуция убирает артикулы в начале строк в столбцах F и G
+title_correction(ws=ws)
 # Функция производит изменения в Артикулах
 make_articles(wb=wb, ws=ws)
 # Функция удаляет ненужные колонки
