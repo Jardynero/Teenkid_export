@@ -9,6 +9,7 @@ from timeit import default_timer as timer
 from openpyxl import load_workbook
 import time
 import datetime
+from insert_cols import inserting_cols, name_columns
 
 # текущее время
 localtime = time.localtime()
@@ -31,6 +32,10 @@ ws = wb.active
 make_articles(wb=wb, ws=ws)
 # Функция удаляет ненужные колонки
 delete_cols(wb=wb, ws=ws)
+# Функция добавляет новые колонки в таблицу
+inserting_cols(ws=ws)
+# Функция дает названия новым колонкам
+name_columns(ws=ws)
 
 # Получение названия файла ексель
 current_excel_file_name = excel_file_search.excelfilename()
@@ -47,7 +52,5 @@ print('Файл выгрузки успешно сохранен!')
 os.remove(current_excel_file_name)
 
 # Конвертирую в csv
-print('Конвертирование файла выгрузки в .csv формат для выгрузки на сайт')
 convert_excel_to_csv()
-print("Конвертирование файла в .csv формат успешно завершенно!")
 print('На данный скрипт потраченно: {} времени'.format(timer() - start_time))
