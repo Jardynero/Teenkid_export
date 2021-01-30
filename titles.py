@@ -33,4 +33,71 @@ def title_correction(ws):
         current_value = current_value.lstrip()
         ws[f'F{row_counter}'].value = current_value
         row_counter += 1
+
+    # Добавляю артикулы в конец строк колонки "E"
+    # Счетчик рядов
+    row_counter = 1
+    for cell in ws['A']:
+        ws[f'E{row_counter}'].value = str(ws[f'E{row_counter}'].value + " " + cell.value)
+        row_counter += 1
+
+
+# Функция убирает оставшиеся скобочки вначале строк столбца "наименование"
+def second_title_correction_e(ws):
+    column_e = []
+    for cell in ws['E']:
+        column_e.append(cell.value)
+
+    index_counter = 0
+    for title in column_e:
+        if title.find('(') >= 0:
+            final_title = title[(title.find(' ') + 1)::]
+            column_e[index_counter] = final_title
+            index_counter += 1
+        else:
+            index_counter += 1
+
+    index_counter = 0
+    for title in column_e:
+        if title.find('-') >= 0:
+            final_title = title[(title.find(' ') + 1)::]
+            column_e[index_counter] = final_title
+            index_counter += 1
+        else:
+            index_counter += 1
+
+    row_counter = 1
+    for title in column_e:
+        ws[f'E{row_counter}'].value = title
+        row_counter += 1
+
+
+# Функция убирает оставшиеся скобочки вначале строк столбца "полное наименование"
+def second_title_correction_f(ws):
+    column_e = []
+    for cell in ws['F']:
+        column_e.append(cell.value)
+
+    index_counter = 0
+    for title in column_e:
+        if title.find('(') == 0:
+            final_title = title[(title.find(' ') + 1)::]
+            column_e[index_counter] = final_title
+            index_counter += 1
+        else:
+            index_counter += 1
+
+    index_counter = 0
+    for title in column_e:
+        if title.find('-') == 0:
+            final_title = title[(title.find(' ') + 1)::]
+            column_e[index_counter] = final_title
+            index_counter += 1
+        else:
+            index_counter += 1
+
+    row_counter = 1
+    for title in column_e:
+        ws[f'F{row_counter}'].value = title
+        row_counter += 1
     print("Коррекция названий завершенна!")
