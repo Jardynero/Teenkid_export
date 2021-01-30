@@ -13,6 +13,8 @@ from insert_cols import inserting_cols, name_columns
 from photos import add_photo_titles
 from price import add_extra_charge
 from titles import title_correction
+from titles import second_title_correction_e
+from titles import second_title_correction_f
 
 # текущее время
 localtime = time.localtime()
@@ -31,10 +33,14 @@ sortexcel()
 wb = load_workbook(excel_file_search.excelfilename())
 ws = wb.active
 
-# Функуция убирает артикулы в начале строк в столбцах F и G
-title_correction(ws=ws)
 # Функция производит изменения в Артикулах
 make_articles(wb=wb, ws=ws)
+# Функуция убирает артикулы в начале строк в столбцах E и F
+title_correction(ws=ws)
+# Функция убирает оставшиеся скобочки вначале строк столбца "наименование"
+second_title_correction_e(ws=ws)
+# Функция убирает оставшиеся скобочки вначале строк столбца "полное наименование"
+second_title_correction_f(ws=ws)
 # Функция удаляет ненужные колонки
 delete_cols(wb=wb, ws=ws)
 # Функция добавляет новые колонки в таблицу
