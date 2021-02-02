@@ -15,6 +15,7 @@ from price import add_extra_charge
 from titles import title_correction
 from titles import second_title_correction_e
 from titles import second_title_correction_f
+from filter_color import filter_color
 
 # текущее время
 localtime = time.localtime()
@@ -51,6 +52,8 @@ name_columns(ws=ws)
 add_photo_titles(ws=ws)
 # Функция делает надбавку у цены и вписывает ее в колонку "M"
 add_extra_charge(ws=ws)
+# Функция добавляет цвета в колонку Filter color
+filter_color(ws=ws)
 
 # Получение названия файла ексель
 current_excel_file_name = excel_file_search.excelfilename()
