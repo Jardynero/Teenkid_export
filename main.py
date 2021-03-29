@@ -11,7 +11,7 @@ import time
 import datetime
 from insert_cols import inserting_cols, name_columns
 from photos import add_photo_titles
-from price import add_extra_charge
+from price import *
 from titles import title_correction
 from titles import second_title_correction_e
 from titles import second_title_correction_f
@@ -64,9 +64,16 @@ sub_categories(ws=ws)
 catagories_names_repair(ws=ws)
 # Функция добавяет последнюю часть категорий в колонку Categories
 end_categories(ws=ws)
-
 # Функция добавляет рекомендованные продукты
 featured_products(ws=ws)
+add_discount(ws=ws, articles=['CSJG 62673', 
+								'CSJG 62666', 
+								'CWJ 7963', 
+								'CSJB 62650', 
+								'FSSW 60037', 
+								'CSJB 62651', 
+								'CSJB 62730', 
+								'CSJB 62733'])
 
 
 def new_articles(ws):
@@ -82,12 +89,14 @@ def new_articles(ws):
 	ws['J1'].value = 'size'
 	ws['K1'].value = 'stock'
 	ws['L1'].value = 'Price NOT'
-	ws['N1'].value = 'sex'
-	ws['O1'].value = 'material'
-	ws['Q1'].value = 'country'
-	ws['R1'].value = 'brand'
-	ws['V1'].value = 'featured'
-	ws['W1'].value = 'collections'
+	ws['M1'].value = 'Price with extra charge'
+	ws['N1'].value = 'Price with discount'
+	ws['O1'].value = 'sex'
+	ws['P1'].value = 'material'
+	ws['R1'].value = 'country'
+	ws['S1'].value = 'brand'
+	ws['W1'].value = 'featured'
+	ws['X1'].value = 'collections'
 
 # Меняю заголовки у столбцов
 new_articles(ws=ws)
