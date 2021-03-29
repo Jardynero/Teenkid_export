@@ -16,6 +16,8 @@ from titles import title_correction
 from titles import second_title_correction_e
 from titles import second_title_correction_f
 from filter_color import filter_color
+from categories import *
+from featured import featured_products
 
 # текущее время
 localtime = time.localtime()
@@ -37,11 +39,11 @@ ws = wb.active
 # Функция производит изменения в Артикулах
 make_articles(wb=wb, ws=ws)
 # Функуция убирает артикулы в начале строк в столбцах E и F
-title_correction(ws=ws)
+# title_correction(ws=ws)
 # Функция убирает оставшиеся скобочки вначале строк столбца "наименование"
-second_title_correction_e(ws=ws)
+# second_title_correction_e(ws=ws)
 # Функция убирает оставшиеся скобочки вначале строк столбца "полное наименование"
-second_title_correction_f(ws=ws)
+# second_title_correction_f(ws=ws)
 # Функция удаляет ненужные колонки
 delete_cols(wb=wb, ws=ws)
 # Функция добавляет новые колонки в таблицу
@@ -54,6 +56,41 @@ add_photo_titles(ws=ws)
 add_extra_charge(ws=ws)
 # Функция добавляет цвета в колонку Filter color
 filter_color(ws=ws)
+# Функция проставляет первую часть категорий
+first_categories(ws=ws)
+# Функция добавляет подкатегории в колонку Categories
+sub_categories(ws=ws)
+# Функция правит наименования
+catagories_names_repair(ws=ws)
+# Функция добавяет последнюю часть категорий в колонку Categories
+end_categories(ws=ws)
+
+# Функция добавляет рекомендованные продукты
+featured_products(ws=ws)
+
+
+def new_articles(ws):
+	ws['A1'].value = 'main sku'
+	ws['B1'].value = 'sku'
+	ws['C1'].value = 'photos'
+	ws['D1'].value = 'short title'
+	ws['E1'].value = 'categories'
+	ws['F1'].value = 'title'
+	ws['G1'].value = 'full description'
+	ws['H1'].value = 'color'
+	ws['I1'].value = 'filter color'
+	ws['J1'].value = 'size'
+	ws['K1'].value = 'stock'
+	ws['L1'].value = 'Price NOT'
+	ws['N1'].value = 'sex'
+	ws['O1'].value = 'material'
+	ws['Q1'].value = 'country'
+	ws['R1'].value = 'brand'
+	ws['V1'].value = 'featured'
+	ws['W1'].value = 'collections'
+
+# Меняю заголовки у столбцов
+new_articles(ws=ws)
 
 # Получение названия файла ексель
 current_excel_file_name = excel_file_search.excelfilename()
