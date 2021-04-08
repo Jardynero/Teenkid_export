@@ -56,9 +56,9 @@ def first_categories(ws):
             ws[f'E{row_counter}'].value = 'Игрушки'
         elif row in malishi:
             if ws[f'N{row_counter}'].value == 'Мужской':
-                ws[f'E{row_counter}'].value = 'Малышам>Мальчикам'
+                ws[f'E{row_counter}'].value = 'Детям>Малышам>Мальчикам'
             else:
-                ws[f'E{row_counter}'].value = 'Малышам>Девочкам'
+                ws[f'E{row_counter}'].value = 'Детям>Малышам>Девочкам'
         elif row in deti:
             if ws[f'N{row_counter}'].value == 'Мужской':
                 ws[f'E{row_counter}'].value = 'Детям>Мальчикам'
@@ -66,9 +66,9 @@ def first_categories(ws):
                 ws[f'E{row_counter}'].value = 'Детям>Девочкам'
         elif row in podrostki:
             if ws[f'N{row_counter}'].value == 'Мужской':
-                ws[f'E{row_counter}'].value = 'Подросткам>Мальчикам'
+                ws[f'E{row_counter}'].value = 'Детям>Мальчикам'
             else:
-                ws[f'E{row_counter}'].value = 'Подросткам>Девочкам'
+                ws[f'E{row_counter}'].value = 'Детям>Девочкам'
         elif row in shapki:
             if ws[f'N{row_counter}'].value == 'Мужской':
                 ws[f'E{row_counter}'].value = 'Детям>Мальчикам'
@@ -76,9 +76,9 @@ def first_categories(ws):
                 ws[f'E{row_counter}'].value = 'Детям>Девочкам'
         elif row in obuv_yaselnaya:
             if ws[f'N{row_counter}'].value == 'Мужской':
-                ws[f'E{row_counter}'].value = 'Малышам>Мальчикам>Ясельная обувь'
+                ws[f'E{row_counter}'].value = 'Детям>Малышам>Мальчикам>Ясельная обувь'
             else:
-                ws[f'E{row_counter}'].value = 'Малышам>Девочкам>Ясельная обувь'
+                ws[f'E{row_counter}'].value = 'Детям>Малышам>Девочкам>Ясельная обувь'
         elif row in obuv_malodetskaya:
             if ws[f'N{row_counter}'].value == 'Мужской':
                 ws[f'E{row_counter}'].value = 'Детям>Мальчикам>Малодетская обувь'
@@ -91,9 +91,9 @@ def first_categories(ws):
                 ws[f'E{row_counter}'].value = 'Детям>Девочкам>Дошкольная обувь'
         elif row in obuv_shkolnyay:
             if ws[f'N{row_counter}'].value == 'Мужской':
-                ws[f'E{row_counter}'].value = 'Подросткам>Мальчикам>Школьная обувь'
+                ws[f'E{row_counter}'].value = 'Детям>Мальчикам>Школьная обувь'
             else:
-                ws[f'E{row_counter}'].value = 'Подросткам>Девочкам>Школьная обувь'
+                ws[f'E{row_counter}'].value = 'Детям>Девочкам>Школьная обувь'
         elif row in obuv_zhenskaya:
                 ws[f'E{row_counter}'].value = 'Женщинам>Женская обувь'
         elif row in obuv_men:
@@ -131,9 +131,11 @@ def sub_categories(ws):
             index_counter += 1
             continue
         elif data in odezhda:
-            ws[f'E{index_counter}'].value = current_value + '>' + 'Одежда'
+            # ws[f'E{index_counter}'].value = current_value + '>' + 'Одежда'
+            index_counter += 1
+            continue
         elif data in belie:
-            ws[f'E{index_counter}'].value = current_value + '>' + 'Белье'
+            ws[f'E{index_counter}'].value = current_value + '>' + 'Белье и пижамы'
         elif data in aksessuari:
             ws[f'E{index_counter}'].value = current_value + '>' + 'Аксессуары'
         else:
@@ -247,6 +249,29 @@ def catagories_names_repair(ws):
         ws[f'D{index_counter}'].value = data
         index_counter += 1
 
+# Функция меняет short title(сокращение категорий)
+def edit_shorttitle(ws):
+    kofty = ['Болеро', 'Джемперы', 'Кардиганы', 'Лонгсливы',
+            'Свитшоты', 'Толстовки', 'Кофты', 'Бомберы', 'Куртки']
+    leggincy_bridgi = ['Лосины', 'Леггинсы', 'Бриджи']
+    maika = ['Майка', 'Майки бельевые', 'Майки']
+    index_counter = 1
+    for data in ws['D']:
+        data = data.value
+        if data in kofty:
+            ws[f'D{index_counter}'].value = "Кофты"
+            index_counter += 1
+        elif data in leggincy_bridgi:
+            ws[f'D{index_counter}'].value = 'Леггинсы и бриджи'
+            index_counter += 1
+        elif data == "Футболки":
+            ws[f'D{index_counter}'].value = "Футболки и майки"
+            index_counter += 1
+        elif data == "Майки":
+            ws[f'D{index_counter}'].value = "Футболки и майки"
+            index_counter += 1
+        else:
+            index_counter += 1
 
 # Функция добавяет последнюю часть категорий в колонку Categories
 def end_categories(ws):

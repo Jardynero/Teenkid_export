@@ -56,12 +56,14 @@ add_photo_titles(ws=ws)
 add_extra_charge(ws=ws)
 # Функция добавляет цвета в колонку Filter color
 filter_color(ws=ws)
+# Функция правит наименования
+catagories_names_repair(ws=ws)
+# Функция меняет short title(сокращение категорий)
+edit_shorttitle(ws=ws)
 # Функция проставляет первую часть категорий
 first_categories(ws=ws)
 # Функция добавляет подкатегории в колонку Categories
 sub_categories(ws=ws)
-# Функция правит наименования
-catagories_names_repair(ws=ws)
 # Функция добавяет последнюю часть категорий в колонку Categories
 end_categories(ws=ws)
 # Функция добавляет рекомендованные продукты
