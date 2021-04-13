@@ -10,7 +10,7 @@ from openpyxl import load_workbook
 import time
 import datetime
 from insert_cols import inserting_cols, name_columns
-from photos import add_photo_titles
+from photos import *
 from price import *
 from titles import title_correction
 from titles import second_title_correction_e
@@ -39,11 +39,11 @@ ws = wb.active
 # Функция производит изменения в Артикулах
 make_articles(wb=wb, ws=ws)
 # Функуция убирает артикулы в начале строк в столбцах E и F
-# title_correction(ws=ws)
+title_correction(ws=ws)
 # Функция убирает оставшиеся скобочки вначале строк столбца "наименование"
-# second_title_correction_e(ws=ws)
+second_title_correction_e(ws=ws)
 # Функция убирает оставшиеся скобочки вначале строк столбца "полное наименование"
-# second_title_correction_f(ws=ws)
+second_title_correction_f(ws=ws)
 # Функция удаляет ненужные колонки
 delete_cols(wb=wb, ws=ws)
 # Функция добавляет новые колонки в таблицу
@@ -75,7 +75,11 @@ add_discount(ws=ws, articles=['CSJG 62673',
 								'FSSW 60037', 
 								'CSJB 62651', 
 								'CSJB 62730', 
-								'CSJB 62733'])
+								'CSJB 62733',
+								'CWK 62504',
+								'CWK 62301'])
+# Функция добавляет название фотографий с сайта черубино
+add_cherubino_photo(ws, os)
 
 
 def new_articles(ws):

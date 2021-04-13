@@ -36,10 +36,10 @@ def title_correction(ws):
 
     # Добавляю артикулы в конец строк колонки "E"
     # Счетчик рядов
-    row_counter = 1
-    for cell in ws['A']:
-        ws[f'E{row_counter}'].value = str(ws[f'E{row_counter}'].value + " " + cell.value)
-        row_counter += 1
+    # row_counter = 1
+    # for cell in ws['A']:
+        # ws[f'E{row_counter}'].value = str(ws[f'E{row_counter}'].value + " " + cell.value)
+        # row_counter += 1
 
 
 # Функция убирает оставшиеся скобочки вначале строк столбца "наименование"
@@ -50,7 +50,7 @@ def second_title_correction_e(ws):
 
     index_counter = 0
     for title in column_e:
-        if title.find('(') >= 0:
+        if title.find('(') == 0:
             final_title = title[(title.find(' ') + 1)::]
             column_e[index_counter] = final_title
             index_counter += 1
@@ -59,7 +59,16 @@ def second_title_correction_e(ws):
 
     index_counter = 0
     for title in column_e:
-        if title.find('-') >= 0:
+        if title.find('-') == 0:
+            final_title = title[(title.find(' ') + 1)::]
+            column_e[index_counter] = final_title
+            index_counter += 1
+        else:
+            index_counter += 1
+
+    index_counter = 0
+    for title in column_e:
+        if title.find('(') == 0:
             final_title = title[(title.find(' ') + 1)::]
             column_e[index_counter] = final_title
             index_counter += 1
@@ -90,6 +99,15 @@ def second_title_correction_f(ws):
     index_counter = 0
     for title in column_e:
         if title.find('-') == 0:
+            final_title = title[(title.find(' ') + 1)::]
+            column_e[index_counter] = final_title
+            index_counter += 1
+        else:
+            index_counter += 1
+
+    index_counter = 0
+    for title in column_e:
+        if title.find('(') == 0:
             final_title = title[(title.find(' ') + 1)::]
             column_e[index_counter] = final_title
             index_counter += 1

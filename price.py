@@ -16,6 +16,9 @@ def add_extra_charge(ws):
         if cell.value == 'Цена':
             row_counter += 1
             continue
+        elif cell.value is None:
+            row_counter += 1
+            continue
         elif cell.value < 800:
             price_with_charge = cell.value * CHEAPER_800
             result = ceil(price_with_charge)
