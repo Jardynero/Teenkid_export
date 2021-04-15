@@ -1,7 +1,5 @@
 *.csv
-*.xlsx
 .idea
-*.xls
 test.py
 .DS_Store
 img
