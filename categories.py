@@ -253,7 +253,7 @@ def catagories_names_repair(ws):
 def edit_shorttitle(ws):
     kofty = ['Болеро', 'Джемперы', 'Кардиганы', 'Лонгсливы',
             'Свитшоты', 'Толстовки', 'Кофты', 'Бомберы', 'Куртки']
-    leggincy_bridgi = ['Лосины', 'Леггинсы', 'Бриджи']
+    leggincy_bridgi = ['Лосины', 'Леггинсы', 'Бриджи', 'Легинсы']
     maika = ['Майка', 'Майки бельевые', 'Майки']
     index_counter = 1
     for data in ws['D']:
